@@ -1,0 +1,6 @@
+github.com/google/go-cmp v0.5.2/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
+github.com/google/go-querystring v1.1.0 h1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD/fhyJ8=
+github.com/google/go-querystring v1.1.0/go.mod h1:Kcdr2DB4koayq7X8pmAG4sNG59So17icRSOU623lUBU=
+github.com/imjasonh/go-marvel v0.0.0-20220728174401-3ca871d4a246 h1:KhoET6de5nDI3ehMtKf8RREwtpjajF0LTgpLu5EVk1Y=
+github.com/imjasonh/go-marvel v0.0.0-20220728174401-3ca871d4a246/go.mod h1:6+qRpg6yF4dBx85j5sUiIlJJVAGqeD+esF7q7xbyH/Y=
+golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
