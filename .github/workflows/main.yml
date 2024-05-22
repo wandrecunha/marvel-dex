@@ -10,7 +10,7 @@ jobs: #para criar as etapas que vão ser executadas em uma ordem.
   CI: # pegar o código, criar a imagem do container e rodar no ambiente do appservice
     runs-on: ubuntu-latest # é onde especifica o agente de execução, o runner do job -> Ambiente q vai executar.
     steps: # os passos de execução, ou seja todas as ações que vai executar no job
-      - name "Checkout do Código"
+      - name: "Checkout do Código"
         uses: actions/checkout@v4.1.5
 
       - name: Docker Login
