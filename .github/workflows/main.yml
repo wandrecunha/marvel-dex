@@ -25,10 +25,18 @@ jobs: #para criar as etapas que vão ser executadas em uma ordem.
           context: ./src
           file: ./src/Dockerfile
           push: true
-          tags: |
+          tags: 
             fabricioveronez/marvel-dex-live:v${{ github.run_number }}
             fabricioveronez/marvel-dex-live:latest
 
           
-
+CD:
+  runs-on: ubuntu-latest
+  steps:
+    - name: "Deploy no Azure App Service"
+      uses: azure/webapps-deploy@v2
+      with: 
+          app-name: live-go
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} #incluir em secret com o nome de referencia. 
+          images: fabricioveronez/marvel-dex-live:v${{ github.run_number }}
           
