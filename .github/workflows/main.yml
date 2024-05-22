@@ -1,0 +1,34 @@
+name: CI-CD
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: #possível executar manualmente a pipeline (fazer testes)
+
+
+jobs: #para criar as etapas que vão ser executadas em uma ordem.
+  # pode ser criado diversos jobs, vai depender da complexicidade que quer dar para pipelines.
+  CI: # pegar o código, criar a imagem do container e rodar no ambiente do appservice
+    runs-on: ubuntu-latest # é onde especifica o agente de execução, o runner do job -> Ambiente q vai executar.
+    steps: # os passos de execução, ou seja todas as ações que vai executar no job
+      - name "Checkout do Código"
+        uses: actions/checkout@v4.1.5
+
+      - name: Docker Login
+        uses: docker/login-action@v3.1.0
+        with:
+          username: ${{ secrets.REGISTRY_USERNAME }} 
+          password: ${{ secrets.REGISTRY_PASSWORD }} # arquivo secreto
+
+      - name: "Docker Build and Push da Imagem"
+        uses: docker/build-push-action@v5.3.0
+        with:
+          context: ./src
+          file: ./src/Dockerfile
+          push: true
+          tags: |
+            fabricioveronez/marvel-dex-live:v${{ github.run_number }}
+            fabricioveronez/marvel-dex-live:latest
+
+          
+
+          
